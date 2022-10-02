@@ -1,27 +1,24 @@
 import React from 'react';
 import './App.scss';
-
-interface Props {
-  onClick: () => void;
-}
-
-export const Provider: React.FC<Props> = React.memo(
-  ({ onClick, children }) => (
-    <button
-      type="button"
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  ),
-);
+import { Input } from './components/Input';
+import { WordsChecking } from './components/WordsChecking';
+import { WordsList } from './components/WordsList';
+import { useAppSelector } from './store/hooks';
 
 export const App: React.FC = () => {
+  const isCheckingWords = useAppSelector(state => state.words.isCheckingWords);
+
   return (
     <div className="starter">
-      <Provider onClick={() => ({})}>
-        <TodoList />
-      </Provider>
+      {!isCheckingWords && (
+        <>
+          <Input />
+          <WordsList />
+        </>
+      )}
+      {isCheckingWords && (
+        <WordsChecking />
+      )}
     </div>
   );
 };

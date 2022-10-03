@@ -7,32 +7,42 @@ export const WordsList: React.FC = () => {
 
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <td>
-              English
-            </td>
-            <td>
-              Translate
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          {words.map(word => (
-            <tr
-              key={`${word.engWord}${word.translateWord}`}
-            >
-              <td>
-                {word.engWord}
-              </td>
-              <td>
-                {word.translateWord}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {words.length === 0
+        ? 'Add words to your vocabulary'
+        : (
+          <table>
+            <thead>
+              <tr>
+                <td>
+                  #
+                </td>
+                <td>
+                  English
+                </td>
+                <td>
+                  Translate
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              {words.map((word, i) => (
+                <tr
+                  key={`${word.engWord}${word.translateWord}`}
+                >
+                  <td>
+                    {i + 1}
+                  </td>
+                  <td>
+                    {word.engWord}
+                  </td>
+                  <td>
+                    {word.translateWord}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
     </div>
   );
 };

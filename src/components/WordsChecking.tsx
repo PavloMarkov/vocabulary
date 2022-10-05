@@ -62,7 +62,12 @@ export const WordsChecking: React.FC = () => {
                   }
 
                   if (numberWord === 9) {
-                    dispatch(addTestResults(correctAnswers));
+                    if (wordsToCheck[numberWord].translateWord === btn.translateWord) {
+                      dispatch(addTestResults(correctAnswers + 1));
+                    } else {
+                      dispatch(addTestResults(correctAnswers));
+                    }
+
                     navigate('/results');
                   }
 

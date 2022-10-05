@@ -6,6 +6,7 @@ import { Input } from './components/Input';
 import { WordsChecking } from './components/WordsChecking';
 import { WordsList } from './components/WordsList';
 import { Results } from './components/Results';
+import { PreviousResults } from './components/PreviousResults';
 
 export const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ export const App: React.FC = () => {
         <Route path="input" element={<Input />} />
         <Route path="checking" element={<WordsChecking />} />
         <Route path="results" element={<Results />} />
+        <Route path="history" element={<PreviousResults />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>

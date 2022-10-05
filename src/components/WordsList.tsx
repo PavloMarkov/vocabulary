@@ -10,12 +10,16 @@ export const WordsList: React.FC = () => {
   return (
     <div>
       <DefaultWords />
-      <Link to="/input">
-        add word
-      </Link>
-      <Link to="/checking">
-        check words
-      </Link>
+      <div>
+        <Link to="/input">
+          add word
+        </Link>
+      </div>
+      <div>
+        <Link to="/checking">
+          check words
+        </Link>
+      </div>
       {words.length === 0
         ? 'Add words to your vocabulary'
         : (

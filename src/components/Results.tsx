@@ -14,9 +14,16 @@ export const Results: React.FC = () => {
       <h1>
         {`${(lastResult / 10) * 100} %`}
       </h1>
-      <Link to="/">
-        Return to Home Page
-      </Link>
+      <div>
+        <Link to="/">
+          Return to Home Page
+        </Link>
+      </div>
+      <div>
+        <Link to="/history">
+          Previous results
+        </Link>
+      </div>
     </>
   );
 };

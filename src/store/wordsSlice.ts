@@ -3,13 +3,11 @@ import { Word } from '../types/Word';
 
 export interface WordsState {
   words: Word[];
-  isCheckingWords: boolean;
   results: number[];
 }
 
 const initialState: WordsState = {
   words: [],
-  isCheckingWords: false,
   results: [],
 };
 
@@ -26,10 +24,6 @@ const wordsSlice = createSlice({
         translateWord: action.payload.translateWord,
       });
     },
-    checkingTenWords(state) {
-      // eslint-disable-next-line no-param-reassign
-      state.isCheckingWords = !state.isCheckingWords;
-    },
     addTestResults(state, action) {
       state.results.push(action.payload);
     },
@@ -37,7 +31,7 @@ const wordsSlice = createSlice({
 });
 
 export const {
-  addDefaultWords, addWord, checkingTenWords, addTestResults,
+  addDefaultWords, addWord, addTestResults,
 } = wordsSlice.actions;
 
 export default wordsSlice.reducer;

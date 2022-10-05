@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { defaultWords } from '../defaultWords';
+import { useAppSelector } from '../store/hooks';
 import { addDefaultWords } from '../store/wordsSlice';
 
 export const DefaultWords: React.FC = () => {
   const dispatch = useDispatch();
-
-  const [isNotUsedDefaultWords, setIsNotUsedDefaultWords] = useState(true);
+  const allWords = useAppSelector(state => state.words.words);
 
   return (
     <div>
-      {isNotUsedDefaultWords
+      {allWords.length < 10
         ? <p>Use Default words?</p>
-        : <p>Default words were used</p>}
-      {isNotUsedDefaultWords && (
+        : ''}
+      {allWords.length < 10 && (
         <button
           type="button"
           onClick={() => {
             dispatch(addDefaultWords(defaultWords));
-            setIsNotUsedDefaultWords(false);
           }}
         >
           Default words

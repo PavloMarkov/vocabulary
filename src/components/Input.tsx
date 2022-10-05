@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addWord, checkingTenWords } from '../store/wordsSlice';
-import { DefaultWords } from './DefaultWords';
+import { Link } from 'react-router-dom';
+import { addWord } from '../store/wordsSlice';
 
 export const Input: React.FC = () => {
   const [engWord, setEngWord] = useState('');
@@ -21,7 +21,6 @@ export const Input: React.FC = () => {
 
   return (
     <div>
-      <DefaultWords />
       <form>
         <div>
           <label
@@ -60,14 +59,9 @@ export const Input: React.FC = () => {
           add word
         </button>
         <div>
-          <button
-            type="button"
-            onClick={() => {
-              dispatch(checkingTenWords());
-            }}
-          >
+          <Link to="/checking">
             check words
-          </button>
+          </Link>
         </div>
       </form>
     </div>

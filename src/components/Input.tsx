@@ -31,6 +31,7 @@ export const Input: React.FC = () => {
               type="text"
               id="engWordInput"
               value={engWord}
+              className="input"
               onChange={(e) => setEngWord(e.target.value)}
             />
           </label>
@@ -43,6 +44,7 @@ export const Input: React.FC = () => {
             <input
               type="text"
               id="engTranslateInput"
+              className="input"
               value={translateWord}
               onChange={(e) => setTranslateWord(e.target.value)}
             />
@@ -50,6 +52,7 @@ export const Input: React.FC = () => {
         </div>
         <button
           type="button"
+          className="button is-primary mt-2"
           disabled={engWord === '' || translateWord === ''}
           onClick={() => {
             dispatch(addWord(createNewWord(engWord, translateWord)));
@@ -58,12 +61,19 @@ export const Input: React.FC = () => {
         >
           add word
         </button>
+      </form>
+      <div className="buttons mt-3">
         <div>
-          <Link to="/checking">
+          <Link to="/checking" className="button is-success">
             check words
           </Link>
         </div>
-      </form>
+        <div>
+          <Link to="/" className="button is-link">
+            Return to Home Page
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

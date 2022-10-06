@@ -9,29 +9,29 @@ export const PreviousResults: React.FC = () => {
   const avarageRes = (avarageTotalRes / 10) * 100 || 0;
 
   return (
-    <>
-      <h1>
+    <div>
+      <h1 className="subtitle is-1">
         All your previous results:
       </h1>
       <ul>
         {allResult.map((res, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <li key={i}>
-            {res}
+            {`${(res / 10) * 100} %`}
           </li>
         ))}
       </ul>
-      <h3>
+      <h3 className="title is-3">
         Avarage result of all words checking is:
       </h3>
-      <h2>
+      <h2 className="title is-2">
         {`${avarageRes} %`}
       </h2>
       <div>
-        <Link to="/">
+        <Link to="/" className="button is-link mg-small">
           Return to Home Page
         </Link>
       </div>
-    </>
+    </div>
   );
 };

@@ -39,22 +39,25 @@ export const WordsChecking: React.FC = () => {
   return (
     <div>
       <div>
-        <Link to="/">
+        <Link to="/" className="button is-danger is-outlined mg-small">
           Exit
         </Link>
       </div>
-      <div>
+      <div className="subtitle is-3">
         {allWords.length >= 10
           ? 'Let\'s start the checking!'
           : `Words to check is less then 10. Add ${10 - allWords.length} words or use default words`}
       </div>
       {wordsToCheck.length === 10 && numberWord < 10 && (
         <div>
-          {`${wordsToCheck[numberWord].engWord} is:`}
+          <h3 className="title is-3">
+            {`"${wordsToCheck[numberWord].engWord}" is:`}
+          </h3>
           <div className="buttons">
             {orderOfBtns.map((btn) => (
               <button
                 key={btn.engWord}
+                className="button is-info is-rounded"
                 type="button"
                 onClick={() => {
                   if (wordsToCheck[numberWord].translateWord === btn.translateWord) {

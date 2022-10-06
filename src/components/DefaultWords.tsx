@@ -11,17 +11,15 @@ export const DefaultWords: React.FC = () => {
 
   return (
     <div>
-      {allWords.length < 10
-        ? <p>Use Default words?</p>
-        : ''}
       {allWords.length < 10 && (
         <button
           type="button"
+          className="button is-warning"
           onClick={() => {
             dispatch(addDefaultWords(defaultWords));
           }}
         >
-          Default words
+          Use Default words
         </button>
       )}
     </div>

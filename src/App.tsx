@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import 'bulma/css/bulma.css';
 import './App.scss';
 import { NotFoundPage } from './components/NotFoundPage';
 import { Input } from './components/Input';

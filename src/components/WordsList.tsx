@@ -9,21 +9,23 @@ export const WordsList: React.FC = () => {
 
   return (
     <div>
-      <DefaultWords />
-      <div>
-        <Link to="/input">
-          add word
-        </Link>
-      </div>
-      <div>
-        <Link to="/checking">
-          check words
-        </Link>
+      <div className="buttons">
+        <DefaultWords />
+        <div>
+          <Link to="/input" className="button is-primary">
+            add word
+          </Link>
+        </div>
+        <div>
+          <Link to="/checking" className="button is-link">
+            check words
+          </Link>
+        </div>
       </div>
       {words.length === 0
-        ? 'Add words to your vocabulary'
+        ? <p className="title is-3">Add words to your vocabulary or use default words</p>
         : (
-          <table>
+          <table className="table is-hoverable is-bordered is-striped">
             <thead>
               <tr>
                 <td>
